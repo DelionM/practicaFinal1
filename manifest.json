@@ -1,0 +1,35 @@
+{
+    "short_name": "Shopping List",
+    "name": "Lista de Compras",
+    "description": "Aplicación encargada de realizar lista de Compras ", 
+    "start_url": "index.html",
+    "background_color": "#31BA8E",
+    "theme_color": "#31BA8E",
+    "display": "standalone",
+    "orientation": "portrait",
+    "icons":[
+        {
+            "src":"assets/icons/32x32.png",
+            "type": "image/png",
+            "sizes":"32x32"
+        },
+        {
+            "src":"assets/icons/72x72.png",
+            "type": "image/png",
+            "sizes":"72x72"
+        },
+        {
+            "src":"assets/icons/128x128.png",
+            "type": "image/png",
+            "sizes":"128x128"
+        },
+        {
+            "src":"assets/icons/256x256.png",
+            "type": "image/png",
+            "sizes":"256x256"
+        }
+    ]
+}
+
+
+

@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#31BA8E">
+    <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>List-shopping</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Menu navegacion -->
+    <nav class="navbar navbar-dark bg-dark sticky-top" aria-label="Dark offcanvas navbar">
+      <div class="container-fluid">
+        <li
+          class="nav-item dropdown text-bg-dark navbar-brand"
+          style="list-style: none"
+        >
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            role="button"
+            data-bs-toggle="dropdown"
+          >
+            lista
+          </a>
+          <ul class="dropdown-menu" style="list-style: none">
+            <li><a class="dropdown-item" href="#">ejemplo1</a></li>
+            <li><a class="dropdown-item" href="#">ejemplo2</a></li>
+            <li><a class="dropdown-item" href="#">ejemplo3</a></li>
+          </ul>
+        </li>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbarDark"
+          aria-controls="offcanvasNavbarDark"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          tabindex="-1"
+          id="offcanvasNavbarDark"
+          aria-labelledby="offcanvasNavbarDarkLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Menu</h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+              active
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <button
+                  id="btn-inicio"
+                  class="nav-link"
+                  data-bs-dismiss="offcanvas"
+                  onclick="show('pageInicio')"
+                >
+                  Inicio
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  id="btn-listas"
+                  class="nav-link"
+                  data-bs-dismiss="offcanvas"
+                  onclick="show('pageListas')"
+                >
+                  Listas
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  id="btn-categorias"
+                  class="nav-link"
+                  data-bs-dismiss="offcanvas"
+                  onclick="show('pageCategorias')"
+                >
+                  Categorias
+                </button>
+              </li>
+              <li class="nav-item">
+                <button
+                  id="btn-productos"
+                  class="nav-link"
+                  data-bs-dismiss="offcanvas"
+                  onclick="show('pageProductos')"
+                >
+                  Productos
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Menu navegacion -->
+
+    <!-- Menu inicio -->
+    <main class="container-fluid h-100 bg-primary text-bg-dark" id="pageInicio">
+      <h2>Inicio</h2>
+
+      <!-- total y Carrito -->
+      <div class="fixed-bottom row row-cols-2 bg-dark text-bg-dark p-2">
+        <div class="col">
+          <div
+            class="row row-cols-auto justify-content-center align-items-center"
+          >
+            <div class="col">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-calculator-filled"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M18 2a3 3 0 0 1 3 3v14a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-14a3 3 0 0 1 3 -3zm-10 15a1 1 0 0 0 -1 1l.007 .127a1 1 0 0 0 1.993 -.117l-.007 -.127a1 1 0 0 0 -.993 -.883zm4 0a1 1 0 0 0 -1 1l.007 .127a1 1 0 0 0 1.993 -.117l-.007 -.127a1 1 0 0 0 -.993 -.883zm4 0a1 1 0 0 0 -1 1l.007 .127a1 1 0 0 0 1.993 -.117l-.007 -.127a1 1 0 0 0 -.993 -.883zm-8 -4a1 1 0 0 0 -1 1l.007 .127a1 1 0 0 0 1.993 -.117l-.007 -.127a1 1 0 0 0 -.993 -.883zm4 0a1 1 0 0 0 -1 1l.007 .127a1 1 0 0 0 1.993 -.117l-.007 -.127a1 1 0 0 0 -.993 -.883zm4 0a1 1 0 0 0 -1 1l.007 .127a1 1 0 0 0 1.993 -.117l-.007 -.127a1 1 0 0 0 -.993 -.883zm-1 -7h-6a2 2 0 0 0 -2 2v1a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-1a2 2 0 0 0 -2 -2z"
+                  stroke-width="0"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <div class="col">
+              <h6>Total(1)</h6>
+              <h5>$20.00</h5>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div
+            class="row row-cols-auto justify-content-center align-items-center"
+          >
+            <div class="col">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="icon icon-tabler icon-tabler-shopping-cart-filled"
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                <path
+                  d="M6 2a1 1 0 0 1 .993 .883l.007 .117v1.068l13.071 .935a1 1 0 0 1 .929 1.024l-.01 .114l-1 7a1 1 0 0 1 -.877 .853l-.113 .006h-12v2h10a3 3 0 1 1 -2.995 3.176l-.005 -.176l.005 -.176c.017 -.288 .074 -.564 .166 -.824h-5.342a3 3 0 1 1 -5.824 1.176l-.005 -.176l.005 -.176a3.002 3.002 0 0 1 1.995 -2.654v-12.17h-1a1 1 0 0 1 -.993 -.883l-.007 -.117a1 1 0 0 1 .883 -.993l.117 -.007h2zm0 16a1 1 0 1 0 0 2a1 1 0 0 0 0 -2zm11 0a1 1 0 1 0 0 2a1 1 0 0 0 0 -2z"
+                  stroke-width="0"
+                  fill="currentColor"
+                ></path>
+              </svg>
+            </div>
+            <div class="col">
+              <h6>Carrito(1)</h6>
+              <h5>$20.00</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- total y Carrito -->
+    </main>
+    <!-- Menu inicio -->
+
+    <!-- menu productos -->
+    <main
+      class="container-fluid h-100 bg-success text-bg-dark"
+      id="pageProductos"
+    >
+      <h2>Productos</h2>
+      <ul id="listaProductos"></ul>
+      <!-- boton agregar -->
+      <a
+        class="float float__sn"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#modalProducto"
+      >
+        <i class="my-float">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-plus"
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 5l0 14"></path>
+            <path d="M5 12l14 0"></path>
+          </svg>
+        </i>
+      </a>
+      <!-- boton agregar -->
+    </main>
+    <!-- menu productos -->
+
+    <!-- menu categorias -->
+    <main
+      class="container-fluid h-100 bg-danger text-bg-dark"
+      id="pageCategorias"
+    >
+      <h2>Categorias</h2>
+      <!-- boton agregar -->
+
+      <!-- categorias -->
+      <ul id="categorias-list"></ul>
+
+      <a
+        class="float float__sn"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#modalCategoria"
+      >
+        <i class="my-float">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-plus"
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 5l0 14"></path>
+            <path d="M5 12l14 0"></path>
+          </svg>
+        </i>
+      </a>
+      <!-- boton agregar -->
+    </main>
+    <!-- menu categorias -->
+
+    <!-- menu listas -->
+    <main
+      class="container-fluid h-100 bg-warning text-bg-dark"
+      id="pageListas"
+    >
+      <h2>Listas</h2>
+
+      <!-- listas -->
+      <ul id="listas-list"></ul>
+
+      <!-- boton agregar -->
+      <a
+        class="float float__sn"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#listModal"
+      >
+        <i class="my-float">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-plus"
+            width="50"
+            height="50"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 5l0 14"></path>
+            <path d="M5 12l14 0"></path>
+          </svg>
+        </i>
+      </a>
+      <!-- boton agregar -->
+    </main>
+    <!-- menu listas -->
+
+    <!-- Modal Producto-->
+    <div
+      class="modal fade"
+      id="modalProducto"
+      tabindex="-1"
+      aria-labelledby="modalProductoLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalProductoLabel">
+              Nuevo producto
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="inputnombreProducto" class="form-label"
+                >Nombre del producto</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputnombreProducto"
+                placeholder="Nombre de la producto"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="inputprecioProducto" class="form-label">Precio</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputprecioProducto"
+                placeholder="Precio producto"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="inputcategoriaProducto" class="form-label"
+                >Categoria</label
+              >
+              <select class="form-select" aria-label="Default select example" id="inputcategoriaProducto">
+              
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Imagen</label>
+              <input class="form-control" type="file" id="inputImagen" accept="image/*" />
+              <img
+                id="imagenProducto"
+                src="./assets/imgs/default.webp"
+                class="img-fluid mt-3 rounded mx-auto d-block"
+                alt=""
+                width="150px"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerrar
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="btn-guardar-producto"
+              data-bs-dismiss="modal"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Producto-->
+
+    <!-- Modal Lista-->
+    <div
+      class="modal fade"
+      id="listModal"
+      tabindex="-1"
+      aria-labelledby="listModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="listModalLabel">Nueva lista</h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="nombreLista" class="form-label"
+                >Nombre de la lista</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="nombreLista"
+                placeholder="Nombre de la lista"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerra
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="btn-guardar-lista"
+              data-bs-dismiss="modal"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Lista-->
+
+    <!-- Modal Categoria-->
+    <div
+      class="modal fade"
+      id="modalCategoria"
+      tabindex="-1"
+      aria-labelledby="modalCategoriaLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="modalCategoriaLabel">
+              Nueva Categoria
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="nombreCategoria" class="form-label"
+                >Nombre de la Categoria</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="nombreCategoria"
+                placeholder="Nombre de la categoria"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cerra
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              id="btn-guardar-categoria"
+              data-bs-dismiss="modal"
+            >
+              Guardar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal Categoria-->
+
+    <script src="./pouchdb-nightly.js"></script>
+    <script src="./base.js"></script>
+    <script src="./app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
